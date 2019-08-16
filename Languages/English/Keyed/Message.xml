@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<MessageOldAgeDiseaseHealed>{PAWN_labelShort} no longer suffers from {2} due to their reduced age. Cause: {0}</MessageOldAgeDiseaseHealed>
+</LanguageData>

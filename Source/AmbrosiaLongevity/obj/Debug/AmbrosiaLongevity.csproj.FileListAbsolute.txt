@@ -1,0 +1,14 @@
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csprojResolveAssemblyReference.cache
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csproj.CoreCompileInputs.cache
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\AmbrosiaLongevity.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\AmbrosiaLongevity.pdb
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\Assembly-CSharp.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\UnityEngine.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\TextMeshPro-1.0.55.56.0b11.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\NAudio.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\NVorbis.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\bin\Debug\UnityEngine.UI.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csproj.CopyComplete
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.dll
+C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.pdb
