@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+	  <success>Always</success>
+	  <operations>
+		<li Class="PatchOperationTest">
+		  <xpath>Defs/HediffDef[defName = "Impotence"]</xpath>
+		</li>
+		<li Class="PatchOperationAddModExtension">
+		  <xpath>Defs/HediffDef[defName = "Menopause" or defName="Impotence"]</xpath>
+		  <value>
+            <li Class="AmbrosiaLongevity.AmbrosiaRemoves"/>
+		  </value>
+		</li>
+	  </operations>
+	</Operation>
+</Patch>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/HediffDef[defName="BadBack" or defName="Frail" or defName="Cataract" or defName="Dementia" or defName="Alzheimers"]</xpath>
+        <value>
+            <li Class="AmbrosiaLongevity.AmbrosiaRemoves"/>
+        </value>
+    </Operation>
+</Patch>
