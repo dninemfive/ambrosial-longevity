@@ -10,6 +10,7 @@ namespace AmbrosiaLongevity
     [DefOf]
     static class HediffDefOf 
     {
+# pragma warning disable CS0649
         public static HediffDef AmbrosiaTolerance;
     }
 }

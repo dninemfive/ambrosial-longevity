@@ -2,6 +2,7 @@
 <ModMetaData>
   <name>Ambrosial Longevity</name>
   <author>dninemfive</author>
-  <supportedVersions><li>1.0</li></supportedVersions>
-  <description>I happened to read about how ambrosia was considered by the ancient Greeks to be the secret to the gods' immortality and made it so. The Ambrosia hediff now reduces pawns' age to a random place between 20 and 34, inclusive.</description>
+  <packageId>dninemfive.ambrosiallongevity</packageId>
+  <supportedVersions><li>1.0</li><li>1.1</li></supportedVersions>
+  <description>I happened to read about how ambrosia was considered by the ancient Greeks to be the secret to the gods' immortality and made it so. The Ambrosia hediff now reduces pawns' age while it exists.</description>
 </ModMetaData>

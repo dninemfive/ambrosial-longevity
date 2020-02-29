@@ -12,3 +12,18 @@ C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\Ambr
 C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csproj.CopyComplete
 C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.dll
 C:\Users\dninemfive\Documents\Visual Studio 2017\Projects\AmbrosiaLongevity\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.pdb
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csprojResolveAssemblyReference.cache
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csproj.CoreCompileInputs.cache
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.pdb
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\AmbrosiaLongevity.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\AmbrosiaLongevity.pdb
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\Assembly-CSharp.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\UnityEngine.CoreModule.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\NAudio.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\NVorbis.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\UnityEngine.UI.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\UnityEngine.SharedInternalsModule.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\UnityEngine.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csproj.CopyComplete
