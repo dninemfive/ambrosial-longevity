@@ -11,10 +11,10 @@ namespace AmbrosiaLongevity
     public class HediffComp_Longevity : HediffComp
     {
         private int ticksTo, targetAge;
-        private int dAgeFloor => Props.defaultAgeFloor;
-        private int dAgeCeil => Props.defaultAgeCeiling;
+        private int DefaultAgeFloor => Props.defaultAgeFloor;
+        private int DefaultAgeCeiling => Props.defaultAgeCeiling;
         private int ageFloor, ageCeiling;
-        private int minHours => Props.minHours;
+        private int MinHours => Props.minHours;
         private int maxHours => Props.maxHours;
         private double tolFactor;
         public HediffCompProperties_Longevity Props => (HediffCompProperties_Longevity)base.props;
@@ -24,15 +24,15 @@ namespace AmbrosiaLongevity
             GetAges(out int tAgeFloor, out int tAgeCeiling);
             ageFloor = tAgeFloor;
             ageCeiling = tAgeCeiling;
-            reset();
+            Reset();
         }
-        private void reset()
+        private void Reset()
         {
             //TODO: make withdrawal age pawn (~10yr from beginning to end of normal withdrawal)
             Hediff tol = base.Pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.AmbrosiaTolerance);
             tolFactor = 1f;
             if (tol != null) tolFactor = 1 / Mathf.Max(EffectFactorSeverityCurve.Evaluate(tol.Severity), 0.05f);
-            ticksTo = (int)((1-base.parent.Severity) * tolFactor * (Rand.Range(minHours, maxHours) * GenDate.TicksPerHour));            
+            ticksTo = (int)((1-base.parent.Severity) * tolFactor * (Rand.Range(MinHours, maxHours) * GenDate.TicksPerHour));            
             Pawn_AgeTracker at = base.Pawn.ageTracker;
             targetAge = ageFloor + ((at.AgeChronologicalYears - at.AgeBiologicalYears) % (ageCeiling - ageFloor));
         }
@@ -60,13 +60,13 @@ namespace AmbrosiaLongevity
                 if (ageY < ageCeiling) RemoveRandOldAgeHediff();
                 //TODO: Facial Stuff compat (make hair less gray, remove wrinkles); assign random non-gray hair colors for vanilla?
                 //wrt above PawnHairColors.RandomHairColor(pawn.story.SkinColor, pawn.ageTracker.AgeBiologicalYears);
-                reset();
+                Reset();
             }
         }
         public void RemoveRandOldAgeHediff()
         {
             
-            if (base.Pawn.health.hediffSet.hediffs.Where(isOldAgeRelated).TryRandomElement(out Hediff hediff))
+            if (base.Pawn.health.hediffSet.hediffs.Where(IsOldAgeRelated).TryRandomElement(out Hediff hediff))
             {
                 if(hediff != null)
                 {
@@ -78,21 +78,21 @@ namespace AmbrosiaLongevity
                 }                
             }
         }
-        private bool isOldAgeRelated(Hediff h)
+        private bool IsOldAgeRelated(Hediff h)
         {
             
             return h.def.HasModExtension<AmbrosiaRemoves>();
         }
         private void GetAges(out int ageFloor, out int ageCeiling)
         {
-            ageFloor = (int)Mathf.Max(1f, getAgeFloor());
+            ageFloor = (int)Mathf.Max(1f, GetAgeFloor());
             ageCeiling = (int)Mathf.Max(ageFloor * 1.5f, 2f);
             if (ageFloor == ageCeiling) ageCeiling++;
         }
-        private int getAgeFloor()
+        private int GetAgeFloor()
         {
             List<LifeStageAge> lsas = base.Pawn.def.race.lifeStageAges;
-            int ret = dAgeFloor;
+            int ret = DefaultAgeFloor;
             if(lsas != null)for(int i = lsas.Count-1; i >= 0; i--)
                 {
                     if(lsas.ElementAt(i).minAge <= base.Pawn.def.race.lifeExpectancy * .5f)
@@ -107,8 +107,8 @@ namespace AmbrosiaLongevity
         {
             Scribe_Values.Look(ref ticksTo, "ticksToHeal", 0, false);
             Scribe_Values.Look(ref targetAge, "targetAge", 0, false);
-            Scribe_Values.Look(ref ageFloor, "ageFloor", dAgeFloor, false);
-            Scribe_Values.Look(ref ageCeiling, "ageCeiling", dAgeCeil, false);
+            Scribe_Values.Look(ref ageFloor, "ageFloor", DefaultAgeFloor, false);
+            Scribe_Values.Look(ref ageCeiling, "ageCeiling", DefaultAgeCeiling, false);
         }
         public override string CompDebugString()
         {
@@ -116,10 +116,3 @@ namespace AmbrosiaLongevity
         }
     }
 }
-/*old comments I want to keep but don't want cluttering up readability:
-    //IEnumerable<HediffGiver_Birthday> hg = h.def.hediffGivers.OfType<HediffGiver_Birthday>();
-    //return hg != null && hg.Any();
-    //IEnumerable<Hediff> oldHediffs = from h in Pawn.health.hediffSet.hediffs where h.def.hediffGivers.OfType<HediffGiver_Birthday>().Any() select h;
-    //OLD (shouldn't be needed given ModExtension approach) TODO: Include Fluffy_BirdsAndBees.HediffGiver_Birthday_Gender, don't include Logann healing factor
-    //targetAge = Rand.Range(20, 33); //TODO: Alien Race compat by making min be age of adulthood and proportionally scaling max
-*/

@@ -12,5 +12,6 @@ namespace AmbrosiaLongevity
     {
 # pragma warning disable CS0649
         public static HediffDef AmbrosiaTolerance;
+#pragma warning restore CS0649
     }
 }
