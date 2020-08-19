@@ -17,7 +17,7 @@ namespace AmbrosiaLongevity
         private int MinHours => Props.minHours;
         private int MaxHours => Props.maxHours;
         private double tolFactor;
-        public HediffCompProperties_Longevity Props => (HediffCompProperties_Longevity)base.props;
+        public HediffCompProperties_Longevity_Old Props => (HediffCompProperties_Longevity_Old)base.props;
         public override void CompPostMake()
         {
             base.CompPostMake();
