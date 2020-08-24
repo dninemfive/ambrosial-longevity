@@ -48,10 +48,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AmbrosiaRemove.cs" />
-    <Compile Include="DefsOf.cs" />
+    <Compile Include="AmbrosiaRemoves.cs" />
+    <Compile Include="DefsOf_Old.cs" />
     <Compile Include="HediffComp_Longevity.cs" />
-    <Compile Include="HediffCompProperties_ReduceAge.cs" />
+    <Compile Include="HediffComp_Longevity_Old.cs" />
+    <Compile Include="HediffCompProperties_ReduceAge_Old.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
