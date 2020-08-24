@@ -14,9 +14,15 @@ namespace AmbrosiaLongevity
         public HediffCompProperties_Longevity Props => (HediffCompProperties_Longevity)base.props;
         public float AgeFloor, AgeCeiling, ToleranceDivisor, AgeChangePerInterval, TargetAge;
 
+        #region cheap hash interval stuff
+        private int hashOffset = 0;
+        public bool IsCheapIntervalTick(int interval) => (int)(Find.TickManager.TicksGame + hashOffset) % interval == 0;
+        #endregion cheap hash interval stuff
+
         public override void CompPostMake()
         {
             base.CompPostMake();
+            hashOffset = base.Pawn.thingIDNumber.HashOffset();
             SetAges();
             Update();
         }
@@ -58,23 +64,28 @@ namespace AmbrosiaLongevity
 
         public override void CompPostTick(ref float severityAdjustment)
         {
-            ticksTo--;
-            if (ticksTo <= 0)
+            if (IsCheapIntervalTick(Props.tickInterval))
             {
-                //TODO: subtract partial year amounts using floats so I don't need all this <= 0 ? 1 business
-                int ageY = base.Pawn.ageTracker.AgeBiologicalYears;
-                if (ageY < targetAge) base.Pawn.ageTracker.AgeBiologicalTicks += GenDate.TicksPerYear;
-                else if (ageY > targetAge) base.Pawn.ageTracker.AgeBiologicalTicks -= GenDate.TicksPerYear;
-                if (ageY < ageCeiling) RemoveRandOldAgeHediff();
-                //TODO: Facial Stuff compat (make hair less gray, remove wrinkles); assign random non-gray hair colors for vanilla?
-                //wrt above PawnHairColors.RandomHairColor(pawn.story.SkinColor, pawn.ageTracker.AgeBiologicalYears);
-                Reset();
+                Log.Message("Age change: " + AgeChangePerInterval);
+                Pawn_AgeTracker at = base.Pawn.ageTracker;
+                if (at.AgeBiologicalYearsFloat > TargetAge)
+                {
+                    at.AgeBiologicalTicks -= (long)(AgeChangePerInterval * GenDate.TicksPerYear);
+                    // TODO: if Facial Stuff, regenerate hair for younger age
+                }
+                else
+                {
+                    RemoveRandOldAgeHediff();
+                    // TODO: if not Facial Stuff, assign random non-gray hair color
+                    // PawnHairColors.RandomHairColor(pawn.story.SkinColor, pawn.ageTracker.AgeBiologicalYears);
+                }
+                Update();
             }
         }
 
         public void RemoveRandOldAgeHediff()
         {
-            if (base.Pawn.health.hediffSet.hediffs.Where(IsOldAgeRelated).TryRandomElement(out Hediff hediff))
+            if (base.Pawn.health.hediffSet.hediffs.Where(h => h.def.HasModExtension<AmbrosiaRemoves>()).TryRandomElement(out Hediff hediff))
             {
                 if (hediff != null)
                 {
@@ -85,11 +96,6 @@ namespace AmbrosiaLongevity
                     }
                 }
             }
-        }
-
-        private bool IsOldAgeRelated(Hediff h)
-        {
-            return h.def.HasModExtension<AmbrosiaRemoves>();
         }
     }
     class HediffCompProperties_Longevity : HediffCompProperties
