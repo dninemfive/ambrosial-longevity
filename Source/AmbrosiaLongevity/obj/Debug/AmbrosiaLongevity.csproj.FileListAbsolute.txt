@@ -37,6 +37,7 @@ C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevit
 C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\Source\AmbrosiaLongevity\bin\Debug\UnityEngine.dll
 C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csprojResolveAssemblyReference.cache
 C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csproj.CoreCompileInputs.cache
-C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.csproj.CopyComplete
 C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.dll
 C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\Source\AmbrosiaLongevity\obj\Debug\AmbrosiaLongevity.pdb
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\1.1\Assemblies\AmbrosiaLongevity.dll
+C:\Users\dninemfive\Documents\mods\Rimworld\F1.0\_maintaining\Ambrosial Longevity\1.1\Assemblies\AmbrosiaLongevity.pdb
