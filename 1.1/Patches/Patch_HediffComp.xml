@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/HediffDef[defName = "AmbrosiaHigh"]/comps</xpath>
+		<value>
+			<li Class="AmbrosiaLongevity.HediffCompProperties_Longevity">
+				<defaultAgeFloor>20</defaultAgeFloor>
+				<defaultAgeCeiling>27</defaultAgeCeiling>
+				<minToleranceFactor>0.1</minToleranceFactor>
+				<maxToleranceFactor>20</maxToleranceFactor>
+				<toleranceDef>AmbrosiaTolerance</toleranceDef>
+				<toleranceEffectCurve>
+					<points>
+					  <li>(0,0.1)</li>
+					  <li>(0.25, 1)</li>
+					  <li>(0.5, 2.5)</li>
+					  <li>(0.75, 5)</li>
+					  <li>(1, 10)</li>
+					</points>
+				</toleranceEffectCurve>
+				<severityEffectCurve>
+					<points>
+					  <li>(0,0.5)</li>
+					  <li>(0.25, 1)</li>
+					  <li>(0.5, 1)</li>
+					  <li>(0.75, 1)</li>
+					  <li>(1, 1.25)</li>
+					</points>
+				</severityEffectCurve>
+			</li>
+		</value>
+	</Operation>
+</Patch>

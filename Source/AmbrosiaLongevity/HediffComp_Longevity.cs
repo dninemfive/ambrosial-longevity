@@ -1,18 +1,15 @@
-﻿using System;
+﻿using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
-using RimWorld;
 
 namespace AmbrosiaLongevity
 {
     class HediffComp_Longevity : HediffComp
     {
         public HediffCompProperties_Longevity Props => (HediffCompProperties_Longevity)base.props;
-        public float AgeFloor, AgeCeiling, ToleranceDivisor, AgeChangePerInterval, TargetAge;
+        public float AgeFloor, AgeCeiling, ToleranceFactor, AgeChangePerInterval, TargetAge;
 
         #region cheap hash interval stuff
         private int hashOffset = 0;
@@ -56,8 +53,8 @@ namespace AmbrosiaLongevity
         public void Update()
         {
             Hediff tolerance = base.Pawn.health.hediffSet.GetFirstHediffOfDef(Props.toleranceDef);
-            ToleranceDivisor = Mathf.Clamp(Props.toleranceEffectCurve.Evaluate(tolerance?.Severity ?? 0f), Props.minToleranceFactor, Props.maxToleranceFactor);
-            AgeChangePerInterval = Props.severityEffectCurve.Evaluate(base.parent.Severity) / ToleranceDivisor; 
+            ToleranceFactor = Mathf.Clamp(Props.toleranceEffectCurve.Evaluate(tolerance?.Severity ?? 0f), Props.minToleranceFactor, Props.maxToleranceFactor);
+            AgeChangePerInterval = Props.severityEffectCurve.Evaluate(base.parent.Severity) * ToleranceFactor; 
             Pawn_AgeTracker at = base.Pawn.ageTracker;
             TargetAge = AgeFloor + ((at.AgeChronologicalYearsFloat - at.AgeBiologicalYearsFloat) % (AgeCeiling - AgeFloor));
         }
@@ -70,7 +67,7 @@ namespace AmbrosiaLongevity
                 Pawn_AgeTracker at = base.Pawn.ageTracker;
                 if (at.AgeBiologicalYearsFloat > TargetAge)
                 {
-                    at.AgeBiologicalTicks -= (long)(AgeChangePerInterval * GenDate.TicksPerYear);
+                    at.AgeBiologicalTicks -= (long)(AgeChangePerInterval * (Props.targetYearsPerYear/GenDate.TicksPerYear));
                     // TODO: if Facial Stuff, regenerate hair for younger age
                 }
                 else
@@ -101,9 +98,9 @@ namespace AmbrosiaLongevity
     class HediffCompProperties_Longevity : HediffCompProperties
     {
 #pragma warning disable CS0649
-        public float defaultAgeFloor = 20f, defaultAgeCeiling = 27f, minHours = 3f, maxHours = 9f, minToleranceFactor = 0.5f, maxToleranceFactor = 20f;
+        public float defaultAgeFloor = 20f, defaultAgeCeiling = 27f, minToleranceFactor = 0.5f, maxToleranceFactor = 20f, targetYearsPerYear = 30f;
         public int tickInterval = 250;
-        public HediffDef toleranceDef, withdrawalDef;
+        public HediffDef toleranceDef;
         public SimpleCurve toleranceEffectCurve, severityEffectCurve;
 #pragma warning restore CS0649
         public HediffCompProperties_Longevity()
