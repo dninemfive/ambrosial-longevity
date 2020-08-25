@@ -9,7 +9,7 @@ namespace AmbrosiaLongevity
     class HediffComp_Longevity : HediffComp
     {
         public HediffCompProperties_Longevity Props => (HediffCompProperties_Longevity)base.props;
-        public float AgeFloor, AgeCeiling, ToleranceFactor, AgeChangePerInterval, TargetAge;
+        public float AgeFloor, AgeCeiling, ToleranceFactor, AgeChangePerInterval, TargetAge, AgeScale;
 
         #region cheap hash interval stuff
         private int hashOffset = 0;
@@ -20,6 +20,8 @@ namespace AmbrosiaLongevity
         {
             base.CompPostMake();
             hashOffset = base.Pawn.thingIDNumber.HashOffset();
+            // Scaling the tick change based on consuming one ambrosia
+            AgeScale = (Props.targetYearsPerYear / GenDate.TicksPerYear) / (Props.severityEffectCurve.Evaluate(0.5f) * Props.toleranceEffectCurve.Evaluate(0.032f));
             SetAges();
             Update();
         }
@@ -67,7 +69,7 @@ namespace AmbrosiaLongevity
                 Pawn_AgeTracker at = base.Pawn.ageTracker;
                 if (at.AgeBiologicalYearsFloat > TargetAge)
                 {
-                    at.AgeBiologicalTicks -= (long)(AgeChangePerInterval * (Props.targetYearsPerYear/GenDate.TicksPerYear));
+                    at.AgeBiologicalTicks -= (long)(AgeChangePerInterval * AgeScale);
                     // TODO: if Facial Stuff, regenerate hair for younger age
                 }
                 else
