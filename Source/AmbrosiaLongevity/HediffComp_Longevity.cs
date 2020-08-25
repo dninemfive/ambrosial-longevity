@@ -21,7 +21,7 @@ namespace AmbrosiaLongevity
             base.CompPostMake();
             hashOffset = base.Pawn.thingIDNumber.HashOffset();
             // Scaling the tick change based on consuming one ambrosia
-            AgeScale = (Props.targetYearsPerYear / GenDate.TicksPerYear) / (Props.severityEffectCurve.Evaluate(0.5f) * Props.toleranceEffectCurve.Evaluate(0.032f));
+            AgeScale = (Props.targetYearsPerYear * (Props.tickInterval / GenDate.TicksPerYear)) / (Props.severityEffectCurve.Evaluate(0.5f) * Props.toleranceEffectCurve.Evaluate(0.032f));
             SetAges();
             Update();
         }
@@ -65,7 +65,6 @@ namespace AmbrosiaLongevity
         {
             if (IsCheapIntervalTick(Props.tickInterval))
             {
-                Log.Message("Age change: " + AgeChangePerInterval);
                 Pawn_AgeTracker at = base.Pawn.ageTracker;
                 if (at.AgeBiologicalYearsFloat > TargetAge)
                 {
@@ -95,6 +94,11 @@ namespace AmbrosiaLongevity
                     }
                 }
             }
+        }
+
+        public override string CompDebugString()
+        {
+            return "Age change: " + AgeChangePerInterval + "; tick change: " + (long)(AgeChangePerInterval * AgeScale);
         }
     }
     class HediffCompProperties_Longevity : HediffCompProperties
